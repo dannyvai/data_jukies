@@ -14,7 +14,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
        if parsedParams.path == "/punchin":
           os.system('date >> punch_in.txt')
           self.processMyRequest(queryParsed)
-       if parsedParams.path == "/punchout":
+       elif parsedParams.path == "/punchout":
           os.system('date >> punch_out.txt')
           self.processMyRequest(queryParsed)
        else:
@@ -28,7 +28,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
        self.end_headers()
 
        self.wfile.write("<?xml version='1.0'?>");
-       self.wfile.write("<sample>Some XML</sample>");
+       self.wfile.write("<sample>It worked!</sample>");
        self.wfile.close();
 
    def processNotYourBusiness(self, query):
